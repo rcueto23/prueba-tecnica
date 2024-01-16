@@ -1,0 +1,74 @@
+<div class="mt-2 ms-2">
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Nuevo registro
+  </button>
+
+  <form (ngSubmit)="onSubmit(registro.value)" [formGroup]="registro">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ingresa un nuevo ingreso o gasto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <label for="tipo" class="form-label">Tipo</label>
+            <select class="form-select" aria-label="Default select example" name="tipo" formControlName="tipo">
+              @for (tipo of tipoRegistro; track $index) {
+                <option [value]="tipo.id">{{tipo.nombre}}</option>
+              }
+            </select>
+          </div>
+
+
+          <div class="mb-1 mt-2">
+            <label for="concepto" class="form-label">Concepto</label>
+            <input type="text" class="form-control" id="concepto" name="concepto" formControlName="concepto">
+          </div>
+
+          <div>
+            <label for="valor" class="form-label">Valor</label>
+            <input type="number" class="form-control" id="valor" name="valor" formControlName="valor">
+          </div>
+
+          <div>
+            <label for="inicio" class="form-label">Mes inicio</label>
+            <select class="form-select" aria-label="Default select example" name="inicio" formControlName="inicio">
+              @for (mes of meses; track $index) {
+                <option [value]="mes.id">{{mes.nombre}}</option>
+              }
+            </select>
+          </div>
+
+          <div>
+            <label for="fin" class="form-label">Mes fin</label>
+            <select class="form-select" aria-label="Default select example" name="fin" formControlName="fin">
+              @for (mes of meses; track $index) {
+                <option [value]="mes.id">{{mes.nombre}}</option>
+              }
+            </select>
+          </div>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+
+<div>
+  <app-meses></app-meses>
+</div>
+
+
+
+

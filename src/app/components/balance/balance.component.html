@@ -1,0 +1,25 @@
+<h1>Ingresos: {{ingresosTotales | currency}}</h1>
+<h1>Gastos: {{gastosTotales | currency}}</h1>
+<h1>Total: {{total | currency}}</h1>
+<table class="table ms-2 me-2">
+  <thead>
+    <tr>
+      <th scope="col">Numero</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Concepto</th>
+      <th scope="col">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    @for (registro of registros; track $index; ) {
+      <tr>
+        <td>{{ $index + 1 }}</td>
+        <td>{{ registro.tipo }}</td>
+        <td>{{ registro.concepto }}</td>
+        <td>{{ registro.valor | currency }}</td>
+      </tr>
+    }
+
+  </tbody>
+</table>

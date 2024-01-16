@@ -1,0 +1,20 @@
+
+
+
+<div class="accordion ms-2 me-2 mt-2" id="accordionExample">
+  @for (mes of meses; track $index) {
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <a class="accordion-button" type="button" data-bs-toggle="collapse" [href]="'#'+ mes.id" aria-expanded="true" aria-controls="collapseOne">
+        {{mes.nombre}}
+      </a>
+    </h2>
+    <div [id]="mes.id" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <app-balance [mes]="mes.id"></app-balance>
+      </div>
+    </div>
+  </div>
+  }
+</div>
+
